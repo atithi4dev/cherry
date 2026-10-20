@@ -314,24 +314,24 @@ export class OrgsService {
         });
 
         // Common technologies intersection
-        let commonTechs = orgSummaries[0]?.technologies || [];
+        let commonTechs: string[] = orgSummaries[0]?.technologies || [];
         for (let i = 1; i < orgSummaries.length; i++) {
             const currentTechs = new Set(orgSummaries[i].technologies);
-            commonTechs = commonTechs.filter((t) => currentTechs.has(t));
+            commonTechs = commonTechs.filter((t: string) => currentTechs.has(t));
         }
 
         // Common topics intersection
-        let commonTopics = orgSummaries[0]?.topics || [];
+        let commonTopics: string[] = orgSummaries[0]?.topics || [];
         for (let i = 1; i < orgSummaries.length; i++) {
             const currentTopics = new Set(orgSummaries[i].topics);
-            commonTopics = commonTopics.filter((t) => currentTopics.has(t));
+            commonTopics = commonTopics.filter((t: string) => currentTopics.has(t));
         }
 
         // Participation overlap (years in which all compared orgs participated)
-        let commonYears = orgSummaries[0]?.years_participated || [];
+        let commonYears: number[] = orgSummaries[0]?.years_participated || [];
         for (let i = 1; i < orgSummaries.length; i++) {
             const currentYears = new Set(orgSummaries[i].years_participated);
-            commonYears = commonYears.filter((y) => currentYears.has(y));
+            commonYears = commonYears.filter((y: number) => currentYears.has(y));
         }
 
         const allTechnologies: Record<string, string[]> = {};

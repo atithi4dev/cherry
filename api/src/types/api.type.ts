@@ -45,6 +45,7 @@ export interface OrgSearchParams extends PaginationParams {
 export interface EditionQueryParams extends PaginationParams {
     org?: string;
     orgSlug?: string;
+    slug?: string;
     year?: number;
     tech?: string | string[];
     technology?: string | string[];
@@ -55,6 +56,7 @@ export interface EditionQueryParams extends PaginationParams {
 export interface ProjectQueryParams extends PaginationParams {
     org?: string;
     orgSlug?: string;
+    slug?: string;
     year?: number;
     year_start?: number;
     year_end?: number;

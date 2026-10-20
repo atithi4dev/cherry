@@ -19,7 +19,8 @@ export class OrgsController {
 
     public static async getOrgBySlug(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const { slug } = req.params;
+            const rawSlug = req.params.slug;
+            const slug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
             if (!slug) {
                 res.status(400).json({ success: false, error: "Organization slug is required" });
                 return;
