@@ -35,7 +35,7 @@ app.use(errorHandler);
 async function startServer() {
     try {
         await connectDB();
-        app.listen(config.API_PORT, config.API_HOST, () => {
+        app.listen(config.API_PORT,() => {
             console.log(`API server listening on http://${config.API_HOST}:${config.API_PORT}`);
             console.log(`Health endpoint: http://${config.API_HOST}:${config.API_PORT}/health`);
         });
